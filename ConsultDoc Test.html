@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ConsultDoc Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f7f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chat-container {
+      width: 400px;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    df-messenger {
+      --df-messenger-bot-message: #e8f0fe;
+      --df-messenger-button-titlebar-color: #1976d2;
+      --df-messenger-chat-background-color: #fff;
+      --df-messenger-font-color: #000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <h2>💬 Talk to Clara, your Scheduling Assistant</h2>
+
+ <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="AppointmentScheduler"
+  agent-id="8df98db0-1a54-49aa-a869-c29fddba5841"
+  language-code="en"
+></df-messenger>
+</div>
+
+<!-- Auto-open chat window on page load -->
+<script>
+  window.addEventListener('dfMessengerLoaded', function (event) {
+    const dfMessenger = document.querySelector('df-messenger');
+    const openIcon = dfMessenger.shadowRoot.querySelector('df-messenger-chat');
+    openIcon.setAttribute('chat-open', true);
+  });
+</script>
+
+</body>
+</html>
